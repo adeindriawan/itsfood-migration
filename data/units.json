@@ -1,0 +1,12 @@
+[
+{"type":"header","version":"5.0.3","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"itsfood"},
+{"type":"table","name":"units","database":"itsfood","data":
+[
+{"id":"1","name":"Jurusan Teknik Industri","address":"Kompleks FTI","group_id":"1","bpp_name":"BPPName","bpp_position":"BPPPosition","bpp_nip":"BPPNIP","chief_name":"ChiefName","chief_position":"ChiefPosition","chief_nip":"ChiefNIP","ppk_name_routine":"PPKRoutineName","ppk_position_routine":"PPKRoutinePosition","ppk_nip_routine":"PPKNIPRoutine","ppk_name_dev":"PPKDevName","ppk_position_dev":"PPKPositionDev","ppk_nip_dev":"PPKNIPDev","receiver_name":"ReceiverName","receiver_nip":"ReceiverNIP"},
+{"id":"2","name":"Jurusan Manajemen Bisnis","address":"Kampus Kota","group_id":"1","bpp_name":null,"bpp_position":null,"bpp_nip":null,"chief_name":null,"chief_position":null,"chief_nip":null,"ppk_name_routine":null,"ppk_position_routine":null,"ppk_nip_routine":null,"ppk_name_dev":null,"ppk_position_dev":null,"ppk_nip_dev":null,"receiver_name":null,"receiver_nip":null},
+{"id":"3","name":"Jurusan Teknik Sipil","address":"Jalan Arsitektur","group_id":"2","bpp_name":null,"bpp_position":null,"bpp_nip":null,"chief_name":null,"chief_position":null,"chief_nip":null,"ppk_name_routine":null,"ppk_position_routine":null,"ppk_nip_routine":null,"ppk_name_dev":null,"ppk_position_dev":null,"ppk_nip_dev":null,"receiver_name":null,"receiver_nip":null},
+{"id":"4","name":"Jurusan Teknik Sipil","address":"Jalan Arsitektur","group_id":"2","bpp_name":null,"bpp_position":null,"bpp_nip":null,"chief_name":null,"chief_position":null,"chief_nip":null,"ppk_name_routine":null,"ppk_position_routine":null,"ppk_nip_routine":null,"ppk_name_dev":null,"ppk_position_dev":null,"ppk_nip_dev":null,"receiver_name":null,"receiver_nip":null}
+]
+}
+]

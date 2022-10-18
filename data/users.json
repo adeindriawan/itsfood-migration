@@ -1,0 +1,11 @@
+[
+{"type":"header","version":"5.0.3","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"itsfood"},
+{"type":"table","name":"users","database":"itsfood","data":
+[
+{"id":"1","name":"Ade Indriawan","email":"aindriawan1@gmail.com","password":"adeindriawan","hashed_password":"$2y$10$KaCpsKUSkvGggmb\/0wBFleE2wBBZOuESf3xi6WH\/bsIklRo8Vj4Um","phone":"085693060270","type":"ITS","unit_id":"1","status":"1","telegram_id":null,"payment_review_list":"0"},
+{"id":"2","name":"Joko Tingkir","email":"jokotingkir@example.com","password":"jokotingkir","hashed_password":"$2y$10$GcVSlxRv6PsGOTBI7zF55.kA.YzplGoSXSefLj05AYIA29bDzti8q","phone":"08123456","type":"Business","unit_id":"4","status":"1","telegram_id":null,"payment_review_list":"1"},
+{"id":"3","name":"Ahmad","email":"ahmad@example.com","password":"1234567","hashed_password":null,"phone":"08123456789","type":"ITS","unit_id":"1","status":"1","telegram_id":"12345","payment_review_list":"0"}
+]
+}
+]

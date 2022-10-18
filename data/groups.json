@@ -1,0 +1,10 @@
+[
+{"type":"header","version":"5.0.3","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"itsfood"},
+{"type":"table","name":"groups","database":"itsfood","data":
+[
+{"id":"1","name":"Fakultas Teknologi Industri"},
+{"id":"2","name":"Fakultas Teknik Sipil dan Perencanaan"}
+]
+}
+]
