@@ -62,4 +62,4 @@ if __name__ == '__main__':
   # https://stackoverflow.com/questions/46540664/no-application-found-either-work-inside-a-view-function-or-push-an-application
   with app.app_context():
     db.create_all()
-  app.run(debug=True)
+  app.run(debug=True, port=5001)

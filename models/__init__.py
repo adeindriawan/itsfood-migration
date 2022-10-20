@@ -15,3 +15,5 @@ from .order_detail import OrderDetail, DumpOrderDetail
 from .cost import Cost, DumpCost
 from .discount import Discount, DumpDiscount
 from .admin import Admin, DumpAdmin
+from .addresses import Address, DumpAddress
+from .purposes import Purpose, DumpPurpose
