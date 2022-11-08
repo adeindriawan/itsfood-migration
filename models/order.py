@@ -18,11 +18,16 @@ class OrderPaymentOption(Enum):
 
 class OrderStatus(Enum):
   Created = 'Created'
-  Forwarded = 'Forwarded'
+  ForwardedPartially = 'Forwarded Partially'
+  ForwardedEntirely = 'Forwarded Entirely'
   Processed = 'Processed'
   Completed = 'Completed'
-  Billed = 'Billed'
+  BilledPartially = 'Billed Partially'
+  BilledEntirely = 'Billed Entirely'
   Paid = 'Paid'
+  PaidAndBilledPartially = 'Paid and Billed Partially'
+  PaidAndBilledEntirely = 'Paid and Billed Entirely'
+  PaidByCustomerAndToVendor = 'Paid by Customer and to Vendor'
   Cancelled = 'Cancelled'
 
 class Order(db.Model):
@@ -31,7 +36,7 @@ class Order(db.Model):
     'mysql_engine': 'InnoDB'
   }
   id = db.Column(db.Integer(), primary_key=True)
-  ordered_by = db.Column(db.Integer(), db.ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
+  ordered_by = db.Column(db.Integer(), db.ForeignKey('customers.id', ondelete='CASCADE'), nullable=False)
   ordered_for = db.Column(db.DateTime(), nullable=False)
   ordered_to = db.Column(db.String(30), nullable=False)
   num_of_menus = db.Column(db.Integer(), nullable=False)
@@ -77,7 +82,7 @@ class DumpOrder(db.Model):
   }
   id = db.Column(db.Integer(), primary_key=True)
   source_id = db.Column(db.Integer(), db.ForeignKey('orders.id', ondelete='CASCADE'), nullable=False)
-  ordered_by = db.Column(db.Integer(), db.ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
+  ordered_by = db.Column(db.Integer(), db.ForeignKey('customers.id', ondelete='CASCADE'), nullable=False)
   ordered_for = db.Column(db.DateTime(), nullable=False)
   ordered_to = db.Column(db.String(30), nullable=False)
   num_of_menus = db.Column(db.Integer(), nullable=False)

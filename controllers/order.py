@@ -29,7 +29,7 @@ def import_orders_and_migrate():
       elif row[11] == '4':
         status = 'Cancelled'
       elif row[11] == '5':
-        status = 'Billed'
+        status = 'BilledEntirely'
       elif row[11] == '6':
         status = 'Paid'
       else:

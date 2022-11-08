@@ -18,7 +18,7 @@ class Customer(db.Model):
   id = db.Column(db.Integer(), primary_key=True)
   user_id = db.Column(db.Integer(), db.ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
   type = db.Column(db.Enum(CustomerType), default='Public', nullable=False)
-  unit_id = db.Column(db.Integer(), db.ForeignKey('units.id', ondelete='CASCADE'), default=0, nullable=True)
+  unit_id = db.Column(db.Integer(), db.ForeignKey('units.id', ondelete='CASCADE'), default=None, nullable=True)
   status = db.Column(db.Enum(CustomerStatus), nullable=False, default='Activated')
   created_by = db.Column(db.String(30), nullable=False)
   created_at = db.Column(db.DateTime(), nullable=False)

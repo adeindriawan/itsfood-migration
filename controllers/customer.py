@@ -18,7 +18,7 @@ def import_customer_and_migrate():
         user_hashed_password = bcrypt.hashpw(user_pwd_byte, salt)
         user_hashed_password = user_hashed_password.decode('utf-8')
       user_phone = row[5]
-      user_unit_id = 1
+      user_unit_id = None
       user_type = 'Customer'
       user_status = 'Activated' if row[9] == '1' else 'Suspended'
       created_by = 'Migration System'
