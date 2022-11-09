@@ -22,13 +22,14 @@ class OrderDetail(db.Model):
   qty = db.Column(db.Integer(), nullable=False)
   price = db.Column(db.Integer(), nullable=False)
   cogs = db.Column(db.Integer(), nullable=False)
+  note = db.Column(db.String(1000), nullable=True)
   status = db.Column(db.Enum(OrderDetailStatus), nullable=False)
   created_at = db.Column(db.DateTime(), nullable=False)
   updated_at = db.Column(db.DateTime(), nullable=True)
   created_by = db.Column(db.String(30), nullable=False)
 
   def __init__(
-    self, id, order_id, menu_id, qty, price, cogs, 
+    self, id, order_id, menu_id, qty, price, cogs, note, 
     status, created_at, updated_at, created_by
     ) -> None:
     super().__init__()
@@ -38,6 +39,7 @@ class OrderDetail(db.Model):
     self.qty = qty
     self.price = price
     self.cogs = cogs
+    self.note = note
     self.status = status
     self.created_at = created_at
     self.updated_at = updated_at
@@ -55,13 +57,14 @@ class DumpOrderDetail(db.Model):
   qty = db.Column(db.Integer(), nullable=False)
   price = db.Column(db.Integer(), nullable=False)
   cogs = db.Column(db.Integer(), nullable=False)
+  note = db.Column(db.String(1000), nullable=True)
   status = db.Column(db.Enum(OrderDetailStatus), nullable=False)
   created_at = db.Column(db.DateTime(), nullable=False)
   updated_at = db.Column(db.DateTime(), nullable=True)
   created_by = db.Column(db.String(30), nullable=False)
 
   def __init__(
-    self, source_id, order_id, menu_id, qty, price, cogs,
+    self, source_id, order_id, menu_id, qty, price, cogs, note,
     status, created_at, updated_at, created_by
     ) -> None:
     super().__init__()
@@ -71,6 +74,7 @@ class DumpOrderDetail(db.Model):
     self.qty = qty
     self.price = price
     self.cogs = cogs
+    self.note = note
     self.status = status
     self.created_at = created_at
     self.updated_at = updated_at

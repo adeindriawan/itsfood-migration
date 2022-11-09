@@ -33,8 +33,9 @@ def import_order_details_and_migrate():
       service_charge = row[10]
       discount = row[11]
       vendor_discount = row[12]
+      note = None
 
-      order_detail_entry = OrderDetail(order_detail_id, order_id, menu_id, qty, price, cogs, status, created_at, updated_at, created_by)
+      order_detail_entry = OrderDetail(order_detail_id, order_id, menu_id, qty, price, cogs, note, status, created_at, updated_at, created_by)
       db.session.add(order_detail_entry)
       db.session.commit()
 
