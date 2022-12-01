@@ -18,8 +18,9 @@ class Unit(db.Model):
   updated_at = db.Column(db.DateTime(), nullable=True)
   created_by = db.Column(db.String(30), nullable=False)
 
-  def __init__(self, name, group_id, status, created_at, updated_at, created_by) -> None:
+  def __init__(self, id, name, group_id, status, created_at, updated_at, created_by) -> None:
     super().__init__()
+    self.id = id
     self.name = name
     self.group_id = group_id
     self.status = status

@@ -24,10 +24,11 @@ class OrderStatus(Enum):
   Completed = 'Completed'
   BilledPartially = 'Billed Partially'
   BilledEntirely = 'Billed Entirely'
-  Paid = 'Paid'
-  PaidAndBilledPartially = 'Paid and Billed Partially'
-  PaidAndBilledEntirely = 'Paid and Billed Entirely'
-  PaidByCustomerAndToVendor = 'Paid by Customer and to Vendor'
+  PaidByCustomer = 'Paid by Customer'
+  PaidByCustomerAndBilledPartially = 'Paid by Customer and Billed Partially'
+  PaidByCustomerAndBilledEntirely = 'Paid by Customer and Billed Entirely'
+  PaidByCustomerAndToVendorPartially = 'Paid by Customer and to Vendor Partially'
+  PaidByCustomerAndToVendorEntirely = 'Paid by Customer and to Vendor Entirely'
   Cancelled = 'Cancelled'
 
 class Order(db.Model):

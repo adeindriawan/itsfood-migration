@@ -4,7 +4,7 @@ from datetime import datetime
 import bcrypt
 
 def import_customer_and_migrate():
-  with open('data/users.csv') as user_file:
+  with open('data/users-20221201.csv') as user_file:
     csv_reader = csv.reader(user_file, delimiter=',')
     for row in csv_reader:
       original_user_id = row[0]
@@ -18,7 +18,7 @@ def import_customer_and_migrate():
         user_hashed_password = bcrypt.hashpw(user_pwd_byte, salt)
         user_hashed_password = user_hashed_password.decode('utf-8')
       user_phone = row[5]
-      user_unit_id = None
+      user_unit_id = row[7]
       user_type = 'Customer'
       user_status = 'Activated' if row[9] == '1' else 'Suspended'
       created_by = 'Migration System'

@@ -8,7 +8,7 @@ def units_migrations():
   f.close()
   units = data[2]['data']
   for unit in units:
-    unit_entry = Unit(unit['name'], unit['group_id'], 'Active', datetime.now(), None, 'Migration System')
+    unit_entry = Unit(unit['id'], unit['name'], unit['group_id'], 'Active', datetime.now(), None, 'Migration System')
     db.session.add(unit_entry)
     db.session.commit()
     new_unit_id = unit_entry.id
