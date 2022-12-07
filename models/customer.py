@@ -4,6 +4,7 @@ from enum import Enum
 class CustomerType(Enum):
   ITS = 'ITS'
   Public = 'Public'
+  Business = 'Business'
 
 class CustomerStatus(Enum):
   Registered = 'Registered'
