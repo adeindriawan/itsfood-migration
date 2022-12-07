@@ -14,12 +14,12 @@ def import_orders_and_migrate():
       num_of_menus = row[8]
       qty_of_menus = row[9]
       amount = row[10]
-      discount = row[16]
       purpose = row[18]
       activity = row[20]
       source_of_fund = row[21]
       info = row[22]
       payment_option = row[31]
+      billed_at = None
       if row[11] == '1':
         status = 'Created'
       elif row[11] == '2':
@@ -41,7 +41,7 @@ def import_orders_and_migrate():
       accepted_at = row[7]
 
       order_entry = Order(id, ordered_by, ordered_for, ordered_to, num_of_menus, qty_of_menus,
-        amount, purpose, activity, source_of_fund, payment_option, info,
+        amount, purpose, activity, source_of_fund, payment_option, billed_at, info,
         status, created_at, updated_at, created_by)
       db.session.add(order_entry)
       db.session.commit()
@@ -51,7 +51,7 @@ def import_orders_and_migrate():
         created_at = processed_at
         status = 'Processed'
         dump_order_entry = DumpOrder(new_order_id, ordered_by, ordered_for, ordered_to, num_of_menus, qty_of_menus,
-        amount, purpose, activity, source_of_fund, payment_option, info,
+        amount, purpose, activity, source_of_fund, payment_option, billed_at, info,
         status, created_at, updated_at, created_by)
         db.session.add(dump_order_entry)
         db.session.commit()
@@ -60,7 +60,7 @@ def import_orders_and_migrate():
         created_at = accepted_at
         status = 'Completed'
         dump_order_entry = DumpOrder(new_order_id, ordered_by, ordered_for, ordered_to, num_of_menus, qty_of_menus,
-        amount, purpose, activity, source_of_fund, payment_option, info,
+        amount, purpose, activity, source_of_fund, payment_option, billed_at, info,
         status, created_at, updated_at, created_by)
         db.session.add(dump_order_entry)
         db.session.commit()

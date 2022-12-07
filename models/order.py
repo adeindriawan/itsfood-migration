@@ -47,6 +47,7 @@ class Order(db.Model):
   activity = db.Column(db.Enum(OrderActivity), nullable=False)
   source_of_fund = db.Column(db.Enum(OrderSourceOfFund), nullable=False)
   payment_option = db.Column(db.Enum(OrderPaymentOption), nullable=True)
+  billed_at = db.Column(db.DateTime(), nullable=True)
   info = db.Column(db.String(100), nullable=True)
   status = db.Column(db.Enum(OrderStatus), nullable=False)
   created_at = db.Column(db.DateTime(), nullable=False)
@@ -55,7 +56,7 @@ class Order(db.Model):
 
   def __init__(
     self, id, ordered_by, ordered_for, ordered_to, num_of_menus, qty_of_menus,
-    amount, purpose, activity, source_of_fund, payment_option, info,
+    amount, purpose, activity, source_of_fund, payment_option, billed_at, info,
     status, created_at, updated_at, created_by
     ) -> None:
     super().__init__()
@@ -70,6 +71,7 @@ class Order(db.Model):
     self.activity = activity
     self.source_of_fund = source_of_fund
     self.payment_option = payment_option
+    self.billed_at = billed_at
     self.info = info
     self.status = status
     self.created_at = created_at
@@ -93,6 +95,7 @@ class DumpOrder(db.Model):
   activity = db.Column(db.Enum(OrderActivity), nullable=False)
   source_of_fund = db.Column(db.Enum(OrderSourceOfFund), nullable=False)
   payment_option = db.Column(db.Enum(OrderPaymentOption), nullable=True)
+  billed_at = db.Column(db.DateTime(), nullable=True)
   info = db.Column(db.String(100), nullable=True)
   status = db.Column(db.Enum(OrderStatus), nullable=False)
   created_at = db.Column(db.DateTime(), nullable=False)
@@ -101,7 +104,7 @@ class DumpOrder(db.Model):
 
   def __init__(
     self, source_id, ordered_by, ordered_for, ordered_to, num_of_menus, qty_of_menus,
-    amount, purpose, activity, source_of_fund, payment_option, info,
+    amount, purpose, activity, source_of_fund, payment_option, billed_at, info,
     status, created_at, updated_at, created_by
     ) -> None:
     super().__init__()
@@ -116,6 +119,7 @@ class DumpOrder(db.Model):
     self.activity = activity
     self.source_of_fund = source_of_fund
     self.payment_option = payment_option
+    self.billed_at = billed_at
     self.info = info
     self.status = status
     self.created_at = created_at
