@@ -15,18 +15,20 @@ class Cost(db.Model):
   order_detail_id = db.Column(db.Integer(), db.ForeignKey('order_details.id', ondelete='CASCADE'), nullable=False)
   amount = db.Column(db.Integer(), nullable=False)
   reason = db.Column(db.String(50), nullable=False)
+  issuer = db.Column(db.String(10), nullable=False)
   status = db.Column(db.Enum(CostStatus), nullable=False)
   created_at = db.Column(db.DateTime(), nullable=False)
   updated_at = db.Column(db.DateTime(), nullable=True)
   created_by = db.Column(db.String(30), nullable=False)
 
   def __init__(
-    self, order_detail_id, amount, reason, status, created_at, updated_at, created_by
+    self, order_detail_id, amount, reason, issuer, status, created_at, updated_at, created_by
     ) -> None:
     super().__init__()
     self.order_detail_id = order_detail_id
     self.amount = amount
     self.reason = reason
+    self.issuer = issuer
     self.status = status
     self.created_at = created_at
     self.updated_at = updated_at
@@ -42,19 +44,21 @@ class DumpCost(db.Model):
   order_detail_id = db.Column(db.Integer(), db.ForeignKey('order_details.id', ondelete='CASCADE'), nullable=False)
   amount = db.Column(db.Integer(), nullable=False)
   reason = db.Column(db.String(50), nullable=False)
+  issuer = db.Column(db.String(10), nullable=False)
   status = db.Column(db.Enum(CostStatus), nullable=False)
   created_at = db.Column(db.DateTime(), nullable=False)
   updated_at = db.Column(db.DateTime(), nullable=True)
   created_by = db.Column(db.String(30), nullable=False)
 
   def __init__(
-    self, source_id, order_detail_id, amount, reason, status, created_at, updated_at, created_by
+    self, source_id, order_detail_id, amount, reason, issuer, status, created_at, updated_at, created_by
     ) -> None:
     super().__init__()
     self.source_id = source_id
     self.order_detail_id = order_detail_id
     self.amount = amount
     self.reason = reason
+    self.issuer = issuer
     self.status = status
     self.created_at = created_at
     self.updated_at = updated_at

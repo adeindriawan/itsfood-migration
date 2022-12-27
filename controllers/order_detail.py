@@ -47,12 +47,12 @@ def import_order_details_and_migrate():
         cost_status = 'Unpaid'
 
       if cost != '0':
-        cost_entry = Cost(order_detail_id, cost, cost_reason, cost_status, created_at, updated_at, created_by)
+        cost_entry = Cost(order_detail_id, cost, cost_reason, 'Vendor', cost_status, created_at, updated_at, created_by)
         db.session.add(cost_entry)
         db.session.commit()
 
       if service_charge != '0':
-        cost_entry = Cost(order_detail_id, service_charge, 'Service charge', cost_status, created_at, updated_at, created_by)
+        cost_entry = Cost(order_detail_id, service_charge, 'Service charge', 'Vendor', cost_status, created_at, updated_at, created_by)
         db.session.add(cost_entry)
         db.session.commit()
 
