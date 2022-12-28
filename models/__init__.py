@@ -8,8 +8,8 @@ from .user import User, DumpUser
 from .customer import Customer, DumpCustomer
 from .vendor import Vendor, DumpVendor
 from .menu import Menu, DumpMenu
-from .va_payment import VAPayment
-from .va_payment_detail import VAPaymentDetail
+from .payment import Payment
+from .payment_detail import PaymentDetail
 from .order import Order, DumpOrder
 from .order_detail import OrderDetail, DumpOrderDetail
 from .cost import Cost, DumpCost
