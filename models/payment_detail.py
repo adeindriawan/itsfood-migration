@@ -3,6 +3,7 @@ from enum import Enum
 
 class PaymentDetailStatus(Enum):
   Unpaid = 'Unpaid'
+  NeedsConfirmation = 'Needs confirmation'
   Paid = 'Paid'
   Cancelled = 'Cancelled'
 
