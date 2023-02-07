@@ -35,8 +35,9 @@ def import_order_details_and_migrate():
       vendor_discount = row[12]
       note = None
       reason = None
+      paid_to_vendor_at = None
 
-      order_detail_entry = OrderDetail(order_detail_id, order_id, menu_id, qty, price, cogs, note, reason, status, created_at, updated_at, created_by)
+      order_detail_entry = OrderDetail(order_detail_id, order_id, menu_id, qty, price, cogs, note, reason, paid_to_vendor_at, status, created_at, updated_at, created_by)
       db.session.add(order_detail_entry)
       db.session.commit()
 

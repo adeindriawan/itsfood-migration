@@ -24,6 +24,7 @@ class OrderDetail(db.Model):
   cogs = db.Column(db.Integer(), nullable=False)
   note = db.Column(db.String(1000), nullable=True)
   reason_for_cancellation = db.Column(db.String(1000), nullable=True)
+  paid_to_vendor_at = db.Column(db.DateTime(), nullable=True)
   status = db.Column(db.Enum(OrderDetailStatus), nullable=False)
   created_at = db.Column(db.DateTime(), nullable=False)
   updated_at = db.Column(db.DateTime(), nullable=True)
@@ -31,7 +32,7 @@ class OrderDetail(db.Model):
 
   def __init__(
     self, id, order_id, menu_id, qty, price, cogs, note, reason_for_cancellation,
-    status, created_at, updated_at, created_by
+    paid_to_vendor_at, status, created_at, updated_at, created_by
     ) -> None:
     super().__init__()
     self.id = id
@@ -42,6 +43,7 @@ class OrderDetail(db.Model):
     self.cogs = cogs
     self.note = note
     self.reason_for_cancellation = reason_for_cancellation
+    self.paid_to_vendor_at = paid_to_vendor_at
     self.status = status
     self.created_at = created_at
     self.updated_at = updated_at
@@ -61,6 +63,7 @@ class DumpOrderDetail(db.Model):
   cogs = db.Column(db.Integer(), nullable=False)
   note = db.Column(db.String(1000), nullable=True)
   reason_for_cancellation = db.Column(db.String(1000), nullable=True)
+  paid_to_vendor_at = db.Column(db.DateTime(), nullable=True)
   status = db.Column(db.Enum(OrderDetailStatus), nullable=False)
   created_at = db.Column(db.DateTime(), nullable=False)
   updated_at = db.Column(db.DateTime(), nullable=True)
@@ -68,7 +71,7 @@ class DumpOrderDetail(db.Model):
 
   def __init__(
     self, source_id, order_id, menu_id, qty, price, cogs, note, reason_for_cancellation,
-    status, created_at, updated_at, created_by
+    paid_to_vendor_at, status, created_at, updated_at, created_by
     ) -> None:
     super().__init__()
     self.source_id = source_id
@@ -79,6 +82,7 @@ class DumpOrderDetail(db.Model):
     self.cogs = cogs
     self.note = note
     self.reason_for_cancellation = reason_for_cancellation
+    self.paid_to_vendor_at = paid_to_vendor_at
     self.status = status
     self.created_at = created_at
     self.updated_at = updated_at
