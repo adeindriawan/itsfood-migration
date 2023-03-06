@@ -6,6 +6,11 @@ class CostStatus(Enum):
   Paid = 'Paid'
   Cancelled = 'Cancelled'
 
+class Issuer(Enum):
+  Vendor = 'Vendor'
+  Utama = 'Utama'
+  Other = 'Other'
+
 class Cost(db.Model):
   __tablename__ = 'costs'
   __table_args__ = {
@@ -15,7 +20,7 @@ class Cost(db.Model):
   order_detail_id = db.Column(db.Integer(), db.ForeignKey('order_details.id', ondelete='CASCADE'), nullable=False)
   amount = db.Column(db.Integer(), nullable=False)
   reason = db.Column(db.String(50), nullable=False)
-  issuer = db.Column(db.String(10), nullable=False)
+  issuer = db.Column(db.Enum(Issuer), nullable=False)
   status = db.Column(db.Enum(CostStatus), nullable=False)
   created_at = db.Column(db.DateTime(), nullable=False)
   updated_at = db.Column(db.DateTime(), nullable=True)
@@ -44,7 +49,7 @@ class DumpCost(db.Model):
   order_detail_id = db.Column(db.Integer(), db.ForeignKey('order_details.id', ondelete='CASCADE'), nullable=False)
   amount = db.Column(db.Integer(), nullable=False)
   reason = db.Column(db.String(50), nullable=False)
-  issuer = db.Column(db.String(10), nullable=False)
+  issuer = db.Column(db.Enum(Issuer), nullable=False)
   status = db.Column(db.Enum(CostStatus), nullable=False)
   created_at = db.Column(db.DateTime(), nullable=False)
   updated_at = db.Column(db.DateTime(), nullable=True)

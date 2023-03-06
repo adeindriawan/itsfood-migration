@@ -5,6 +5,11 @@ class DiscountStatus(Enum):
   Active = 'Active'
   Cancelled = 'Cancelled'
 
+class Issuer(Enum):
+  Vendor = 'Vendor'
+  Utama = 'Utama'
+  Other = 'Other'
+
 class Discount(db.Model):
   __tablename__ = 'discounts'
   __table_args__ = {
@@ -14,7 +19,7 @@ class Discount(db.Model):
   order_detail_id = db.Column(db.Integer(), db.ForeignKey('order_details.id', ondelete='CASCADE'), nullable=False)
   amount = db.Column(db.Integer(), nullable=False)
   reason = db.Column(db.String(50), nullable=False)
-  issuer = db.Column(db.String(10), nullable=False)
+  issuer = db.Column(db.Enum(Issuer), nullable=False)
   status = db.Column(db.Enum(DiscountStatus), nullable=True)
   created_at = db.Column(db.DateTime(), nullable=False)
   updated_at = db.Column(db.DateTime(), nullable=True)
@@ -43,7 +48,7 @@ class DumpDiscount(db.Model):
   order_detail_id = db.Column(db.Integer(), db.ForeignKey('order_details.id', ondelete='CASCADE'), nullable=False)
   amount = db.Column(db.Integer(), nullable=False)
   reason = db.Column(db.String(50), nullable=False)
-  issuer = db.Column(db.String(10), nullable=False)
+  issuer = db.Column(db.Enum(Issuer), nullable=False)
   status = db.Column(db.Enum(DiscountStatus), nullable=False)
   created_at = db.Column(db.DateTime(), nullable=False)
   updated_at = db.Column(db.DateTime(), nullable=True)
