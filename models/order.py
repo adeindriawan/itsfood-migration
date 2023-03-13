@@ -39,7 +39,7 @@ class Order(db.Model):
   id = db.Column(db.Integer(), primary_key=True)
   ordered_by = db.Column(db.Integer(), db.ForeignKey('customers.id', ondelete='CASCADE'), nullable=False)
   ordered_for = db.Column(db.DateTime(), nullable=False)
-  ordered_to = db.Column(db.String(30), nullable=False)
+  ordered_to = db.Column(db.Text(), nullable=False)
   num_of_menus = db.Column(db.Integer(), nullable=False)
   qty_of_menus = db.Column(db.Integer(), nullable=False)
   amount = db.Column(db.Integer(), nullable=False)
